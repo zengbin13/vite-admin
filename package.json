@@ -9,7 +9,7 @@
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint {src,mock}/**/*.{html,vue,css,sass,scss} --fix --cache --cache-location node_modules/.cache/stylelint/",
-    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js --quiet",
     "prepare": "husky install"
   },
   "dependencies": {
