@@ -23,6 +23,7 @@ module.exports = defineConfig({
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     // Vue属性排序
     'vue/attributes-order': [
       'warn',

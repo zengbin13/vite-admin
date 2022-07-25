@@ -1,4 +1,4 @@
-/// <reference types="vite/client" />
+// declare 对模块的声明: declare module 让tsc注册为模块
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'

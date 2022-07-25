@@ -1,18 +1,55 @@
+// https://www.typescriptlang.org/zh/tsconfig
+// https://blog.csdn.net/qq_44831027/article/details/108150470
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true
+    "target": "esnext", // 目标语言的版本
+    "module": "esnext", // 设置程序的模块系统
+    "moduleResolution": "node", // 指定模块解析策略
+    "baseUrl": ".", // 解析非相对模块的基地址
+    "paths": {
+      "@/*": [
+        "/src/*"
+      ],
+      "#/*": [
+        "/types/*"
+      ],
+    }, // 路径映射, 相对于baseUrl
+    "types": [
+      "vite/client",
+    ], //声明文件目录 - 当 types 被指定, 则只有列出的包才会被包含在全局范围内
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types"
+    ], //声明文件目录，默认时node_modules/@types
+    "strict": true, // 开启所有严格的类型检查
+    "jsx": "preserve", // 在 .tsx 中支持 JSX: React 或 Preserve
+    "sourceMap": true, // 生成目标文件的sourceMap文件
+    "esModuleInterop": true, // // 允许export=导出，由import from 导入
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "resolveJsonModule": true, //解析json文件模块
+    // "isolatedModules": true,  //编译器会将每个文件作为单独的模块来使用
+    "forceConsistentCasingInFileNames": true, // 强制文件名使用一致的大小写
+    "skipLibCheck": true, // 跳过声明文件的类型检查
+    "noUnusedLocals": true, // 检查只声明、未使用的局部变量(只提示不报错)
+    "noUnusedParameters": true, // 检查未使用的函数参数(只提示不报错)
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "vite.config.ts"
+  ], //指定需要编译的TS文件
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ]
 }
